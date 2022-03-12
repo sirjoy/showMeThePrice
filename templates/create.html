@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h1>{% block title %} Leer codigo de barras {% endblock %}</h1>
+    <form method="post">
+        <label for="code">Código</label>
+        <br>
+        <input type="text" name="code"
+               placeholder="código ..."
+               value="{{ request.form['code'] }}"></input>
+        <br>
+        <button type="submit">Submit</button>
+    </form>
+{% endblock %}
