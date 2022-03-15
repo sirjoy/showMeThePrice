@@ -33,5 +33,10 @@ def create():
             flash('Un código de barras debe leerse!')
         else:
             history.append({'title': code})
-            return redirect(url_for('index'))
-    return render_template('create.html')
+            return redirect(url_for('create'))
+
+    if len(history) > 0:
+        last_msg = history[-1]
+    else:
+        last_msg = []
+    return render_template('create.html', last_msg=last_msg)

@@ -5,10 +5,19 @@
     <form method="post">
         <label for="code">Código</label>
         <br>
-        <input type="text" name="code"
+        <input type="search" name="code"
                placeholder="código ..."
-               value="{{ request.form['code'] }}"></input>
+               value="{{ request.form['code'] }}"
+               autofocus
+        ></input>
         <br>
-        <button type="submit">Submit</button>
+<!--        <button type="submit">Submit</button>-->
     </form>
+
+    <div >
+        <h1>Código</h1>
+        <h3>{{ last_msg['title'] }}</h3>
+<!--        <p>{{ last_msg['content'] }}</p>-->
+    </div>
+
 {% endblock %}
