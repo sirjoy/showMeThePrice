@@ -9,6 +9,7 @@ app.config['SECRET_KEY'] = 'your secret key'
 
 
 history = []
+data = get_db()
 
 
 @app.route('/')
@@ -32,7 +33,8 @@ def create():
         if not code:
             flash('Un código de barras debe leerse!')
         else:
-            history.append({'title': code})
+            price, name = get_product_price(get_available_codes(data), code, data)
+            history.append({'title': code, 'price': price, 'name': name})
             return redirect(url_for('create'))
 
     if len(history) > 0:
